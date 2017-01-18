@@ -4,11 +4,6 @@
 
         <input type="search" ng-model="query" class="form-control">
 
-
-        
-        <button ng-click="ctrl.restoreDelete()" 
-                ng-if="ctrl.deleteClick"
-                class="btn btn-sm btn-warning">Restore delete</button>
         <table class="table">
             <thead>
                 <tr>
@@ -24,11 +19,15 @@
                     <td>
                         <a ng-href="/user/{{ user.id }}">{{ user.name }}</a></td>
                     <td>{{ user.age }}</td>
-                    <td style="text-align:right">
+                    <td style="text-align:right" ng-if="!user.delete">
                         <a 
-                        ng-href="/addUser/{{ user.id }}" class="btn btn-warning">Edit</a>
+                        ng-href="/addUser/{{ user.id }}" class="btn btn-warning" >Edit</a>
                         <button 
-                        ng-click="ctrl.deleteUser(user)" class="btn btn-danger">Delete</button>
+                        ng-click="ctrl.deleteUser(user)" class="btn btn-danger" >Delete</button>
+                    </td>
+                    <td style="text-align:right" ng-if="user.delete">
+                        <button 
+                        ng-click="ctrl.restoreDelete()" class="btn btn-danger" >Cancel</button>
                     </td>
                 </tr>
             </tbody>

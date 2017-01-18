@@ -22,14 +22,15 @@ export class UsersController {
 
     
 
-    deleteUser(user) { 
-        this.deleteClick=true
-        this.users = this.users.filter(u => u.id !== user.id);
+    deleteUser(user) {
+        
+        user.delete = true;
+        
         this.myTimer = this.$timeout(() => {
                 this.deleteClick=false;
                 user.deleted = true;
                 this.UserService.deleteUser(user);
-            
+                this.users = this.users.filter(u => u.id !== user.id);
         },2000)
         
     }
