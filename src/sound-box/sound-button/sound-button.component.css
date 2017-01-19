@@ -9,3 +9,12 @@ sound-button {
     background: lightgrey;
     color: black;
 }
+
+sound-button button {
+    color: #777;
+    margin-top:-25px;
+}
+.checkbox{
+    margin-top:-10px;
+    color: #777;
+}
