@@ -17,8 +17,21 @@
             <tbody>
                 <tr ng-repeat="user in ctrl.users | filter:query | orderBy:ctrl.predicat:ctrl.reverse track by $index">
                     <td>
-                        <a ng-href="/user/{{ user.id }}">{{ user.name }}</a></td>
+                        <a ng-href="/user/{{ user.id }}">{{ user.name }}</a>
+                        <br>
+                        <div ng-init="ctrl.rate = 5">
+                            <span uib-rating ng-model="ctrl.rate" max="10" state-on="'glyphicon glyphicon-star'" state-off="'glyphicon glyphicon-star-empty'"></span> 
+                            <b>(<i>Rate:</i> {{ctrl.rate}})</b>
+                        </div>
+                  </td>
                     <td>{{ user.age }}</td>
+                    <td>
+                        <dta-gravatar
+                             on-deactivate="ctrl.deactivate()"
+                             email="user.email">
+                        </dta-gravatar>
+                    </td>
+                
                     <td style="text-align:right" ng-if="!user.delete">
                         <a 
                         ng-href="/addUser/{{ user.id }}" class="btn btn-warning" >Edit</a>
@@ -40,5 +53,4 @@
             </tfoot>
         </table>
         <a href="/addUser" class="btn btn-primary">Add User</a>
-        
     </div>

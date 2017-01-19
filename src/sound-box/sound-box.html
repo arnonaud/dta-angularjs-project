@@ -1,0 +1,25 @@
+<form name="soundForm" ng-submit="$ctrl.saveSound()" class="well">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input ng-model="$ctrl.sound.title"
+            name="name" 
+            required
+            ng-maxlength="20"
+            id="name" type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="url">Url</label>
+        <input 
+            ng-model="$ctrl.sound.url"
+            name="age" 
+            id="age" type="text" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>
+<sound-button 
+    ng-repeat="sound in $ctrl.sounds track by $index"
+    on-delete="$ctrl.clearSound(sound.title)"
+    sound="sound">
+</sound-button>

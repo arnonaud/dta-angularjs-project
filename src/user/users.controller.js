@@ -43,4 +43,8 @@ export class UsersController {
                 this.users = users;
             });
     }
+
+    deactivate(){
+        console.log('deactivate');
+    }
 }

@@ -1,9 +1,16 @@
 {
   "users": [
     {
+      "email": "arnaud.lemarquand@gmail.com",
       "name": "AAA",
       "age": 6,
       "id": 6
+    },
+    {
+      "email": "toto@gmail.com",
+      "name": "BBA",
+      "age": 23,
+      "id": 7
     }
   ]
 }

@@ -6,14 +6,9 @@ export class UserController {
             .then(user => this.user = user);
     };
 
-    saveUser(form, user) {
-        if (form.$invalid) return;
-
-        this.UserService.saveUser(user)
-            .then(()=>{
-                this.$location.path('/users')
-            }) 
+    saveUser($event) {
+        this.UserService.saveUser($event)
+            .then(() => this.$location.path('/users'));
     }
+}
 
-
-};

@@ -1,13 +1,17 @@
 import angular from 'angular';
 import ngRoute from 'angular-route';
+import bootstrap from 'angular-ui-bootstrap';
 
 import { EldestFilter } from './eldest.filter';
 import { UsersController } from './users.controller';
 import { UserService } from './user.service';
 import { UserController } from './user.controller'
+import { DtaGravatar } from './dta-gravatar/dta-gravatar.component'
+import { DtaUser } from './dta-user/dta-user.component'
 
 export default angular.module('user', [
-    ngRoute
+    ngRoute,
+    bootstrap
 ])
 .controller('UsersController', UsersController)
 .controller('UserController', UserController)
@@ -31,5 +35,7 @@ export default angular.module('user', [
             controllerAs: 'ctrl'
         })
 })
+.component('dtaGravatar', DtaGravatar)
+.component('dtaUser', DtaUser)
 .name;
 

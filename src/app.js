@@ -1,12 +1,14 @@
 import angular from 'angular';
-import ngRoute from 'angular-route'
+import ngRoute from 'angular-route';
 
-import UserModule from './user'
+import UserModule from './user';
+import SoundBox from './sound-box';
 
 
 angular.module('app', [
     ngRoute,
-    UserModule
+    UserModule,
+    SoundBox
 ])
 
 
@@ -20,6 +22,9 @@ angular.module('app', [
         })
         .when('/about', {
             template: '<h1>About</h1>'
+        })
+        .when('/sound',{
+            template:  `<sound-box></sound-box>`
         })
         .otherwise('/')
 })
